@@ -33,6 +33,13 @@ If the arithmetic is too slow, the queue will underrun because the frequency of 
 
 At some point I will take some time to thoroughly profile pieces of the code, particularly the Filter::step() method, and see where things should be more thoroughly optimized. The Teensy processor's instruction set includes a nice multiply-accumulate that intrigues me.
 
+Structure of the code
+----
+
+The synthesis modules are defined in `teensy/synth.h` and `teensy/synth.cpp`. The voices that you can play are defined in `teensy/voice.h`. The code that uses these things to produce music is `teensy/teensy.ino` when running on the Teensy, and `test.cpp` when running on your laptop or desktop.
+
+When you want to start tinkering, the place to start is `voice.h`, where you can combine the modules in different ways to get different sounds. If you design a new instrument, you'll want to modify `teensy.ino` for your keyboard layout.
+
 test.py
 ====
 
@@ -47,42 +54,17 @@ I've posted this as a project on [Frizing.org](http://fritzing.org/projects/triv
 
 ![Circuit for the trivisynth](trivisynth/trivisynth.png)
 
-You'll need [Teensyduino](https://www.pjrc.com/teensy/teensyduino.html) set up in order to load the code onto your Teensy board.
+You'll need [Teensyduino](https://www.pjrc.com/teensy/teensyduino.html) set up in order to load the code onto your Teensy board. Install the Arduino IDE and the Teensyduino add-on on your laptop or desktop, and load the `teensy/teensy.ino` file. You should also see `synth.h`, `synth.cpp`, and `voice.h` as additional tabs in the IDE. Use the checkmark button in the upper left to verify the code is syntactically correct and compile it, and the arrow button to load the code into your Teensy.
 
-Provide instructions to build the thing and a little info about how to play it.
+You might want to first build it on a solderless breadboard and solder it down later. To get started, supply power to the Teensy and build the audio output circuit, and then
 
 Teensy 3.1 info
 ----
 
 * [The Freescale Semiconductor web page](http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=K20_50) for the MK20DX256VLH7 processor used in the Teensy 3.1.
-* [The datasheet](https://www.pjrc.com/teensy/K20P64M72SF1RM.pdf) that talks about GPIO programming starting on page 1331.
-* [The Teensy 3.1 schematic](https://www.pjrc.com/teensy/schematic.html). PTB17 is the GPIO that I want to read. The Port B input register is at 0x400FF050. There is no MMU so no need for any mmap craziness.
-* [Here](https://forum.pjrc.com/threads/25317-Assembly-coding-for-Teensy3-1) is a great discussion of embedding assembly in C code. Also see http://www.ethernut.de/en/documents/arm-inline-asm.html.
+* [The datasheet](https://www.pjrc.com/teensy/K20P64M72SF1RM.pdf) talks about GPIO programming starting on page 1331.
+* [Here](https://www.pjrc.com/teensy/schematic.html) is the Teensy 3.1 schematic.
+* [Here](https://forum.pjrc.com/threads/25317-Assembly-coding-for-Teensy3-1) is a great discussion of embedding assembly in C code. Also see [this](http://www.ethernut.de/en/documents/arm-inline-asm.html).
 * [A C header file](http://www.keil.com/dd/docs/arm/freescale/kinetis/mk20d7.h) for registers in the MK20DX.
 * [Some nice info](http://www.peter-cockerell.net/aalp/html/frames.html) on ARM assembly language.
 * There is an [online ARM C++ compiler](http://assembly.ynh.io/).
-
-Here is what assembly language looks like.
-
-```c++
-static int measurePeriod(void)
-{
-    // Step 1, set up registers
-    int count = 0, x = 0, mask = 1 << 17, addr = 0x400ff050;
-#   define READ_INPUT  "ldr %1, [%3]\n"     "ands %1, %1, %2\n"
-#   define INC_COUNT   "add %0, %0, #1\n"
-    asm volatile(
-        // Step 2, if input is low go to step 7
-        READ_INPUT
-        "beq step7"                             "\n"
-        // Step 3, wait for falling edge
-        "step3:"                                "\n"
-
-        ... lots more code ...
-
-        "step10:"                               "\n"
-        : "+r" (count), "+r" (x), "+r" (mask), "+r" (addr)
-    );
-    return count;
-}
-```

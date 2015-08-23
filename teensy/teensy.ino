@@ -42,23 +42,32 @@ void timer_interrupt(void)
     }
 }
 
+/**
+ * Keyboard scanning passes thru this function because all Teensy-specific
+ * code lives in this file. If you're thinking about touch-sensitive keys
+ * or other exotica, this is the place for that. Also, if keys are assigned
+ * special functions, that should be handled here.
+ */
 uint8_t read_key(uint32_t id)
 {
     if (digitalReadFast(id) == LOW) {
         switch (id) {
             case 8:
+                s.quiet();
                 cli();
                 use_synth(&s);
                 sei();
                 return 0;
                 break;
             case 9:
+                s2.quiet();
                 cli();
                 use_synth(&s2);
                 sei();
                 return 0;
                 break;
             case 10:
+                s3.quiet();
                 cli();
                 use_synth(&s3);
                 sei();
@@ -87,6 +96,7 @@ void setup() {
         s2.add(new SimpleVoice());
     for (i = 0; i < 6; i++)
         s3.add(new TwoSquaresVoice());
+    s.quiet();
     use_synth(&s);
     use_read_key(&read_key);
     analogWriteResolution(12);

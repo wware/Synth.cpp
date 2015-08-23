@@ -29,7 +29,6 @@ void use_read_key(uint8_t (*rk)(uint32_t))
 void use_synth(ISynth *s)
 {
     _synth = s;
-    s->quiet();
 }
 
 ISynth * get_synth(void)
