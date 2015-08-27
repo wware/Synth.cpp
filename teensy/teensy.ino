@@ -3,8 +3,10 @@
 #include "synth.h"
 #include "voice.h"
 
+#define KEYBOARD 1
 #define NUM_KEYS 11
 
+/** @file */
 
 class ThreadSafeSynth : public Synth
 {
@@ -42,11 +44,14 @@ class FunctionKey : public Key
     }
 };
 
-
 Key *keyboard[NUM_KEYS];
 ThreadSafeSynth s, s2, s3;
+ISynth *synth_ary[3];
 
 int8_t pitches[] = { 0, 2, 4, 5, 7, 9, 11, 12 };
+extern uint32_t tune[];
+uint32_t start_time;
+uint32_t tune_pointer;
 
 /**
  * The timer interrupt takes audio samples from the queue and feeds
@@ -81,8 +86,20 @@ uint8_t read_key(uint32_t id)
     return (digitalReadFast(id) == LOW);
 }
 
+/**
+ * Note that there are different numbers of voices assigned for the
+ * different types of voice. The more complicated a voice is, the
+ * less polyphony is possible. There are two ways to address this.
+ *
+ * * Lower the sampling rate, which adversely impacts sound quality.
+ * * Speed up the code. That means doing a lot of profiling
+ *   (best done with a GPIO pin and an oscilloscope in this situation)
+ *   and then write tighter C++ code and possibly some assembly language.
+ */
 void setup() {
     uint8_t i;
+    start_time = micros();
+    tune_pointer = 0;
     /*
      * The more complicated a voice is, the less polyphony is possible.
      * There are two ways to address this. One is to lower the sampling
@@ -91,8 +108,6 @@ void setup() {
      * pin and an oscilloscope in this situation) possibly followed by
      * tighter C++ code and possibly some assembly language.
      */
-
-
 #define NUM_NOISY_VOICES  4
 #define NUM_SIMPLE_VOICES  14
 #define NUM_SQUARE_VOICES  8
@@ -106,8 +121,8 @@ void setup() {
     for (i = 0; i < NUM_SQUARE_VOICES; i++)
         s3.add(new TwoSquaresVoice());
     s.quiet();
-    use_synth(&s);
-    use_read_key(&read_key);
+    use_synth_array(synth_ary, 3);
+    use_synth(0);
     analogWriteResolution(12);
     Timer1.initialize((int) (1000000 * DT));
     Timer1.attachInterrupt(timer_interrupt);
@@ -141,8 +156,15 @@ void setup() {
  */
 void loop(void) {
     int i;
+#if KEYBOARD
     for (i = 0; i < NUM_KEYS; i++)
         keyboard[i]->check();
+#else
+    uint32_t msecs = (micros() - start_time) / 1000;
+    if (play_tune(tune, msecs)) {
+        start_time = micros();
+    }
+#endif
     for (i = 0; i < 64; i++)
         get_synth()->compute_sample();
 }

@@ -11,11 +11,14 @@
 #define BIGGER (1.5819767 * (1 << 28))
 
 #define RARE  500
+
 #define NOT_TOO_SMALL(x)    MAX(x, 0.01)
 
 #define KEYDOWN_HYSTERESIS 10
 
+ISynth **_synth_ary = NULL;
 ISynth *_synth = NULL;
+uint8_t num_synths = 0;
 uint8_t (*_read_key)(uint32_t) = NULL;
 
 void use_read_key(uint8_t (*rk)(uint32_t))
@@ -23,9 +26,9 @@ void use_read_key(uint8_t (*rk)(uint32_t))
     _read_key = rk;
 }
 
-void use_synth(ISynth *s)
+void use_synth(uint8_t i)
 {
-    _synth = s;
+    _synth = _synth_ary[i % num_synths];
 }
 
 ISynth * get_synth(void)
@@ -33,8 +36,51 @@ ISynth * get_synth(void)
     return _synth;
 }
 
+void use_synth_array(ISynth **s, uint8_t _num_synths)
+{
+    _synth_ary = s;
+    num_synths = _num_synths;
+}
+
 float small_random() {
     return -2.0 + 0.01 * (rand() % 400);
+}
+
+static int tune_pointer = 0;
+
+uint8_t play_tune(uint32_t *tune, uint32_t msecs)
+{
+    while (1) {
+        uint32_t t = tune[tune_pointer++];
+        if (t > msecs) {
+            tune_pointer--;
+            return 0;
+        }
+        uint32_t type = tune[tune_pointer++];
+        uint32_t param = tune[tune_pointer++];
+        uint32_t value = tune[tune_pointer++];
+        switch (type) {
+            case 0:
+                tune_pointer = 0;
+                return 1;
+                break;
+            case 1:
+                // keydown
+                get_synth()->keydown((int32_t)param - 50);
+                break;
+            case 2:
+                // keyup
+                get_synth()->keyup((int32_t)param - 50);
+                break;
+            case 3:
+                // voice change
+                use_synth(param);
+                break;
+            default:
+                get_synth()->ioctl(param, value);
+                break;
+        }
+    }
 }
 
 void assertion(int cond, const char *strcond,
@@ -139,6 +185,7 @@ IVoice * Synth::get_next_available_voice(int8_t pitch) {
         v = voices[i];
     else
         v = voices[next_voice_to_assign];
+    ASSERT(v != NULL);
 
     next_voice_to_assign++;
     if (next_voice_to_assign == num_voices) {

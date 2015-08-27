@@ -5,47 +5,45 @@
 #include "teensy/synth.h"
 #include "teensy/voice.h"
 
+#define NUM_VOICES 8
+
 FILE *outf, *gp_outf;
 int t;
-float _time;
 Synth s;
+ISynth *synth_ary[NUM_VOICES];
+extern uint32_t tune[];
 
 int main(void)
 {
-    use_synth(&s);
+    synth_ary[0] = &s;
+    use_synth_array(synth_ary, NUM_VOICES);
+    use_synth(0);
+
+    gp_outf = fopen("foo.gp", "w");
+
     outf = fopen("foo.py", "w");
     fprintf(outf, "sampfreq = %lf\n", (double) SAMPLING_RATE);
     fprintf(outf, "samples = [\n");
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < NUM_VOICES; i++) {
         s.add(new NoisyVoice());
+        // s.add(new TwoSquaresVoice());
+        // s.add(new SimpleVoice());
+    }
 
-    for (t = 0; t < 3 * SAMPLING_RATE; t++) {
+    for (t = 0; 1; t++) {
         int32_t y;
-        _time = t * DT;
+        uint32_t msecs = (1000 * t) / SAMPLING_RATE;
+        if (play_tune(tune, msecs)) break;
         s.compute_sample();
         ASSERT(s.get_sample((uint32_t *) &y) == 0);
-
         fprintf(outf, "%u,\n", (uint16_t) (y << 6));
 
-        if (t == SAMPLING_RATE / 2) {
-            s.keydown(0);
-            s.keydown(7);
-        }
-        if (t == SAMPLING_RATE) {
-            s.keydown(4);
-            s.keydown(16);
-        }
-        if (t == SAMPLING_RATE * 3 / 2) {
-            s.keydown(12);
-        }
-        if (t == SAMPLING_RATE * 2) {
-            s.keyup(0);
-            s.keyup(4);
-            s.keyup(7);
-        }
+        /* Numbers for Gnuplot */
+        fprintf(gp_outf, "%d %d\n", t, (int) y);
     }
 
     fprintf(outf, "]\n");
     fclose(outf);
+    fclose(gp_outf);
 }

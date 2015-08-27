@@ -1,6 +1,17 @@
 #ifndef SYNTH_H_INCLUDED
 #define SYNTH_H_INCLUDED 1
 
+/**
+ * @file synth.h
+ * @brief Synthesizer modules and supporting functions
+ *
+ * Values that would be voltages in an analog synthesizer are 12 bits
+ * in most cases. You can think of unsigned quantities (0 to 4095) as
+ * having voltages ranging from 0 volts to 1 volt, and signed quantities
+ * (-2048 to 2047) as a range of -0.5 volt to +0.5 volt.
+ */
+
+
 #include <stdlib.h>
 
 #ifndef __ARM
@@ -18,6 +29,8 @@ extern void assertion(int cond, const char *strcond,
                       const char *file, const int line);
 
 extern float small_random();
+
+extern uint8_t play_tune(uint32_t *tune, uint32_t msecs);
 
 /** Buffer for the Queue class. This MUST be a power of 2. */
 #define BUFSIZE 1024
@@ -59,8 +72,9 @@ public:
 };
 
 extern void use_read_key(uint8_t (*rk)(uint32_t));
-extern void use_synth(ISynth *s);
+extern void use_synth_array(ISynth **s, uint8_t _num_synths);
 extern ISynth * get_synth(void);
+extern void use_synth(uint8_t i);
 
 /**
  * A queue containing unsigned 32-bit samples. WARNING: This class
@@ -124,7 +138,7 @@ class Synth : public ISynth {
 
 public:
     Synth() {
-        int i;
+        uint32_t i;
         again = num_voices = 0;
         next_voice_to_assign = 0;
         for (i = 0; i < 100; i++) {

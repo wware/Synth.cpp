@@ -3,7 +3,7 @@ import os
 import sys
 
 # Set __ARM = 0 so later it will be possible to disable assembly language.
-CMD = ("g++ -Wall -g -D__ARM=0 -Iteensy -o foo test.cpp teensy/synth.cpp")
+CMD = ("g++ -Wall -g -D__ARM=0 -Iteensy -o foo test.cpp teensy/synth.cpp teensy/tune.cpp")
 assert os.system(CMD) == 0, CMD
 
 if 'valgrind' in sys.argv[1:]:
@@ -14,7 +14,7 @@ assert os.system(CMD) == 0, CMD
 
 if 'gnuplot' in sys.argv[1:]:
     os.system("echo \"set term png; set output 'output.png';"
-        " plot 'foo.gp' using 1:3 with lines, 'foo.gp' using 1:2 with lines\" | gnuplot")
+        " plot 'foo.gp' using 1:2 with lines\" | gnuplot")
     sys.exit(0)
 
 import aifc
