@@ -48,6 +48,7 @@ public:
     virtual void keyup(void) = 0;
     virtual int32_t output(void) = 0;
     virtual bool idle(void) = 0;
+    virtual void ioctl(uint32_t, uint32_t) = 0;
 };
 
 class ISynth {
@@ -60,6 +61,7 @@ public:
     virtual uint8_t get_sample(uint32_t *x) = 0;
     virtual void write_sample(void) = 0;
     virtual void compute_sample(void) = 0;
+    virtual void ioctl(uint32_t, uint32_t) = 0;
 };
 
 extern void use_read_key(uint8_t (*rk)(uint32_t));
@@ -157,6 +159,13 @@ public:
     }
 
     void compute_sample(void);
+
+    void ioctl(uint32_t param, uint32_t value) {
+        uint32_t i;
+        for (i = 0; i < num_voices; i++) {
+            voices[i]->ioctl(param, value);
+        }
+    }
 };
 
 class ADSR {

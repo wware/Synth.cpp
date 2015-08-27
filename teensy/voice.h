@@ -38,6 +38,9 @@ public:
     int32_t output(void) {
         return mult_unsigned_signed(adsr.output(), osc1.output() >> 2);
     }
+    void ioctl(uint32_t param, uint32_t value) {
+        // do nothing for now
+    }
 };
 
 class TwoSquaresVoice : public IVoice {
@@ -85,6 +88,9 @@ public:
     int32_t output(void) {
         return mult_unsigned_signed(adsr.output(), osc1.output() >> 3) +
             mult_unsigned_signed(adsr2.output(), osc2.output() >> 3);
+    }
+    void ioctl(uint32_t param, uint32_t value) {
+        // do nothing for now
     }
 };
 
@@ -149,6 +155,9 @@ public:
         x += filt.highpass() >> 1;
         x >>= 1;
         return mult_unsigned_signed(adsr.output(), x);
+    }
+    void ioctl(uint32_t param, uint32_t value) {
+        // do nothing for now
     }
 };
 
