@@ -18,9 +18,6 @@ extern void assertion(int cond, const char *strcond,
                       const char *file, const int line);
 
 extern float small_random();
-extern int32_t mult_signed(int32_t x, int32_t y);
-extern int32_t mult_unsigned(uint32_t x, uint32_t y);
-extern int32_t mult_unsigned_signed(uint32_t x, int32_t y);
 
 /** Buffer for the Queue class. This MUST be a power of 2. */
 #define BUFSIZE 1024
@@ -31,11 +28,8 @@ extern int32_t mult_unsigned_signed(uint32_t x, int32_t y);
 #define MIN(x, y)   (((x) < (y)) ? (x) : (y))
 #define MAX(x, y)   (((x) > (y)) ? (x) : (y))
 
-// #define MULSHIFT32(x, y)  ((((int64_t) x) * y) >> 32)
-#define ADDCLIP(x, y)   clip(((int64_t) x) + ((int64_t) y))
-
-inline int32_t clip(int64_t x) {
-    return MAX(-0x80000000LL, MIN(0x7fffffffLL, x));
+inline int32_t clip(int32_t x) {
+    return MAX(-0x800, MIN(0x7ff, x));
 }
 
 class IVoice {
@@ -169,8 +163,8 @@ public:
 };
 
 class ADSR {
-    uint64_t _value;
-    int64_t dvalue;
+    uint32_t _value;  // 28 bits used, 16 are fraction bits
+    int32_t dvalue;
     uint32_t count;
     uint8_t _state;
     float attack, decay, sustain, release;
@@ -196,7 +190,7 @@ public:
         dvalue = 0;
     }
     uint32_t output() {
-        return _value >> 32;
+        return _value >> 16;
     }
     void keydown(void);
     void keyup(void);

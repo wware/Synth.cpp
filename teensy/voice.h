@@ -36,7 +36,7 @@ public:
         adsr.keyup();
     }
     int32_t output(void) {
-        return mult_unsigned_signed(adsr.output(), osc1.output() >> 2);
+        return ((int32_t)adsr.output() * osc1.output()) >> 12;
     }
     void ioctl(uint32_t param, uint32_t value) {
         // do nothing for now
@@ -86,8 +86,8 @@ public:
         adsr2.keyup();
     }
     int32_t output(void) {
-        return mult_unsigned_signed(adsr.output(), osc1.output() >> 3) +
-            mult_unsigned_signed(adsr2.output(), osc2.output() >> 3);
+        return (((int32_t)adsr.output() * osc1.output()) >> 14) +
+            (((int32_t)adsr2.output() * osc2.output()) >> 14);
     }
     void ioctl(uint32_t param, uint32_t value) {
         // do nothing for now
@@ -116,17 +116,14 @@ public:
         adsr2.setR(0.6);
     }
     void step(void) {
-        uint64_t __f = _f;
+        uint32_t __f = _f;
         osc1.step();
         osc2.step();
         osc3.step();
         adsr.step();
         adsr2.step();
-        filt.setF((__f * adsr2.output()) >> 32);
-        int64_t x = osc1.output();
-        x += osc2.output();
-        x += osc3.output();
-        filt.step(x >> 1);
+        filt.setF((__f * adsr2.output()) >> 12);
+        filt.step((osc1.output() + osc2.output() + osc3.output()) >> 1);
     }
     bool idle(void) {
         return adsr.state() == 0;
@@ -150,11 +147,10 @@ public:
         adsr2.keyup();
     }
     int32_t output(void) {
-        int64_t x;
+        int32_t x;
         x = filt.bandpass();
         x += filt.highpass() >> 1;
-        x >>= 1;
-        return mult_unsigned_signed(adsr.output(), x);
+        return ((int32_t)adsr.output() * x) >> 13;
     }
     void ioctl(uint32_t param, uint32_t value) {
         // do nothing for now

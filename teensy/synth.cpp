@@ -5,15 +5,12 @@
 
 #include "synth.h"
 
-#define UNIT_2   0x200000000LL
-#define UNITSQ   (1.0f * UNIT * UNIT)
-#define GOAL     (0.95 * UNITSQ)
+#define GOAL     (0.95 * (1 << 28))
 
 /* 1 / (1 - 1/e), because exponential */
-#define BIGGER (1.5819767 * UNITSQ)
+#define BIGGER (1.5819767 * (1 << 28))
 
 #define RARE  500
-#define FMUL  ((uint32_t) (2 * 6.2831853 * DT * UNIT))
 #define NOT_TOO_SMALL(x)    MAX(x, 0.01)
 
 #define KEYDOWN_HYSTERESIS 10
@@ -38,21 +35,6 @@ ISynth * get_synth(void)
 
 float small_random() {
     return -2.0 + 0.01 * (rand() % 400);
-}
-
-int32_t mult_signed(int32_t x, int32_t y)
-{
-    return (((int64_t) x) * y) >> 32;
-}
-
-int32_t mult_unsigned(uint32_t x, uint32_t y)
-{
-    return (((uint64_t) x) * y) >> 32;
-}
-
-int32_t mult_unsigned_signed(uint32_t x, int32_t y)
-{
-    return (((uint64_t) x) * y) >> 32;
 }
 
 void assertion(int cond, const char *strcond,
@@ -128,12 +110,14 @@ void Synth::compute_sample(void) {
 uint32_t Synth::get_12_bit_value(void)
 {
     uint8_t i, n = 255 / num_voices;
-    int64_t x = 0;
+    int32_t x = 0;
     for(i = 0; i < num_voices; ++i){
         x += voices[i]->output();
     }
     x = (x * n) >> 8;
-    return ((x >> 20) + 0x800) & 0xFFF;
+    ASSERT(x < 0x800);
+    ASSERT(x >= -0x800);
+    return (x + 0x800) & 0xFFF;
 }
 
 IVoice * Synth::get_next_available_voice(int8_t pitch) {
@@ -183,8 +167,6 @@ void ADSR::rare_step(void) {
     case 1:
         h = exp(-RARE * DT / attack);
         next_value = h * _value + (1.0 - h) * BIGGER;
-        ASSERT(next_value - _value < UNITSQ);
-        ASSERT(next_value - _value > -UNITSQ);
         if (next_value > GOAL) {
             _state = 2;
             next_value = GOAL;
@@ -202,7 +184,7 @@ void ADSR::rare_step(void) {
             next_value = 0;
         break;
     }
-    dvalue = 1. * (next_value - _value) / RARE;
+    dvalue = (next_value - _value) / RARE;
 }
 
 void ADSR::setA(float a) {
@@ -243,38 +225,40 @@ int32_t Oscillator::output(void) {
     default:
     case 0:
         // ramp
-        return (int32_t) phase;
+        if (phase < 0x80000000) return (((int32_t) phase) >> 20);
+        else return (((int32_t) phase) >> 20) - 4096;
+        break;
     case 1:
         // triangle
         switch (phase >> 30) {
         case 0:
-            return (phase << 1) & 0x7fffffff;
+            return (phase >> 19);
         case 1:
-            return ~(phase << 1) & 0x7fffffff;
+            return -(phase >> 19) + 4096;
         case 2:
-            return ~(phase << 1) | 0x80000000;
+            return -(phase >> 19) + 4096;
         default:
-            return (phase << 1) | 0x80000000;
+            return (phase >> 19) - 8192;
         }
         break;
     case 2:
         // square
         if (phase == 0) return 0;
-        if (phase < 0x80000000) return 0x7fffffff;
-        return -0x80000000;
+        if (phase < 0x80000000) return 0x7ff;
+        return -0x800;
         break;
     }
 }
 
 void Filter::compute_two_k(void) {
     // k needs to scale with frequeuncy
-    two_k = (UNIT_2 * _k * _f) >> 24;
+    two_k = (2 * _k * _f) >> 12;
 }
 
 void Filter::setF(uint32_t f) {
+    const int32_t m = 6 * 3.1415926 * (1 << 20) * DT;
     _f = f;
-    w0dt = FMUL * f;
-    // w0dt ranges from 0 to 0.358
+    w0dt = m * f;
     compute_two_k();
 }
 
@@ -288,12 +272,11 @@ void Filter::setQ(float q) {
 }
 
 void Filter::step(int32_t x) {
-    int64_t y = x >> 2;
-    y -= mult_unsigned_signed(two_k, integrator1);
+    int32_t y = x >> 2;
+    y -= ((int32_t)two_k * integrator1) >> 12;
     y -= integrator2;
-    // u is in the range from -2**30 to +2**30
-    integrator2 = ADDCLIP(integrator2, mult_unsigned_signed(w0dt, integrator1));
-    integrator1 = ADDCLIP(integrator1, mult_unsigned_signed(w0dt, u));
+    integrator2 = clip(integrator2 + (((int32_t)w0dt * integrator1) >> 20));
+    integrator1 = clip(integrator1 + (((int32_t)w0dt * u) >> 20));
     u = clip(y);
 }
 

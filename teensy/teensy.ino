@@ -90,11 +90,19 @@ void setup() {
      * pin and an oscilloscope in this situation) possibly followed by
      * tighter C++ code and possibly some assembly language.
      */
-    for (i = 0; i < 3; i++)
+
+
+#define NUM_NOISY_VOICES  4
+#define NUM_SIMPLE_VOICES  14
+#define NUM_SQUARE_VOICES  8
+    synth_ary[0] = &s;
+    synth_ary[1] = &s2;
+    synth_ary[2] = &s3;
+    for (i = 0; i < NUM_NOISY_VOICES; i++)
         s.add(new NoisyVoice());
-    for (i = 0; i < 8; i++)
+    for (i = 0; i < NUM_SIMPLE_VOICES; i++)
         s2.add(new SimpleVoice());
-    for (i = 0; i < 6; i++)
+    for (i = 0; i < NUM_SQUARE_VOICES; i++)
         s3.add(new TwoSquaresVoice());
     s.quiet();
     use_synth(&s);
