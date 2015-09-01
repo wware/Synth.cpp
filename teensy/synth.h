@@ -199,8 +199,7 @@ public:
 };
 
 class Filter {
-    int32_t integrator1, integrator2, u;
-    uint32_t w0dt, two_k, _f, _k;
+    int32_t integrator1, integrator2, u, w0dt, two_k, _f, _k;
 
     void compute_two_k(void);
 

@@ -273,10 +273,10 @@ void Filter::setQ(float q) {
 
 void Filter::step(int32_t x) {
     int32_t y = x >> 2;
-    y -= ((int32_t)two_k * integrator1) >> 12;
+    y -= (two_k * integrator1) >> 12;
     y -= integrator2;
-    integrator2 = clip(integrator2 + (((int32_t)w0dt * integrator1) >> 20));
-    integrator1 = clip(integrator1 + (((int32_t)w0dt * u) >> 20));
+    integrator2 = clip(integrator2 + ((w0dt * integrator1) >> 20));
+    integrator1 = clip(integrator1 + ((w0dt * u) >> 20));
     u = clip(y);
 }
 
