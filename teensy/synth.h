@@ -189,7 +189,7 @@ public:
         _value = 0;
         dvalue = 0;
     }
-    uint32_t output() {
+    int32_t output() {
         return _value >> 16;
     }
     void keydown(void);
@@ -281,9 +281,20 @@ public:
         voice = NULL;
     }
     /**
-     * Checks to see if this key is being pressed/touched.
+     * Checks to see if this key is being pressed/touched. Debounces using a
+     * hysteresis state machine.
      */
     void check(void);
+    /**
+     * Default keydown behavior is to call keydown on the current synth and
+     * pass it the pitch. This behavior can be overridden.
+     */
+    void keydown(void);
+    /**
+     * Default keyup behavior is to call keyup on the current synth and
+     * pass it the pitch. This behavior can be overridden.
+     */
+    void keyup(void);
 };
 
 #endif     // SYNTH_H_INCLUDED

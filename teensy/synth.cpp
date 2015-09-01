@@ -290,7 +290,7 @@ void Key::check(void) {
                 if (count == KEYDOWN_HYSTERESIS) {
                     state = 1;
                     count = 0;
-                    if (_synth != NULL) _synth->keydown(pitch);
+                    keydown();
                 }
             }
         }
@@ -303,9 +303,21 @@ void Key::check(void) {
                 if (count == KEYDOWN_HYSTERESIS) {
                     state = 0;
                     count = 0;
-                    if (_synth != NULL) _synth->keyup(pitch);
+                    keyup();
                 }
             }
         }
+    }
+}
+
+void Key::keydown(void) {
+    if (_synth != NULL) {
+        _synth->keydown(pitch);
+    }
+}
+
+void Key::keyup(void) {
+    if (_synth != NULL) {
+        _synth->keyup(pitch);
     }
 }

@@ -15,6 +15,34 @@ class ThreadSafeSynth : public Synth
     }
 };
 
+class FunctionKey : public Key
+{
+    void keyup(void) { /* nada */ }
+    void keydown(void) {
+        switch (id) {
+            case 8:
+                s.quiet();
+                cli();
+                use_synth(&s);
+                sei();
+                break;
+            case 9:
+                s2.quiet();
+                cli();
+                use_synth(&s2);
+                sei();
+                break;
+            case 10:
+                s3.quiet();
+                cli();
+                use_synth(&s3);
+                sei();
+                break;
+        }
+    }
+};
+
+
 Key *keyboard[NUM_KEYS];
 ThreadSafeSynth s, s2, s3;
 
@@ -50,34 +78,7 @@ void timer_interrupt(void)
  */
 uint8_t read_key(uint32_t id)
 {
-    if (digitalReadFast(id) == LOW) {
-        switch (id) {
-            case 8:
-                s.quiet();
-                cli();
-                use_synth(&s);
-                sei();
-                return 0;
-                break;
-            case 9:
-                s2.quiet();
-                cli();
-                use_synth(&s2);
-                sei();
-                return 0;
-                break;
-            case 10:
-                s3.quiet();
-                cli();
-                use_synth(&s3);
-                sei();
-                return 0;
-                break;
-        }
-        return 1;
-    } else {
-        return 0;
-    }
+    return (digitalReadFast(id) == LOW);
 }
 
 void setup() {
@@ -123,10 +124,15 @@ void setup() {
     pinMode(10, INPUT_PULLUP);
     pinMode(LED_BUILTIN, OUTPUT);
 
-    for (i = 0; i < NUM_KEYS; i++) {
+    for (i = 0; i < NUM_KEYS - 3; i++) {
         keyboard[i] = new Key();
         keyboard[i]->id = i;
         keyboard[i]->pitch = ((int8_t*) &pitches)[i];
+    }
+    for ( ; i < NUM_KEYS; i++) {
+        keyboard[i] = new FunctionKey();
+        keyboard[i]->id = i;
+        keyboard[i]->pitch = 0;
     }
 }
 
