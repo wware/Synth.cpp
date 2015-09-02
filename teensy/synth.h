@@ -35,9 +35,6 @@ extern uint8_t play_tune(uint32_t *tune, uint32_t msecs);
 /** Buffer for the Queue class. This MUST be a power of 2. */
 #define BUFSIZE 1024
 
-// Used a lot for fixed-point arithmetic.
-#define UNIT     0x100000000LL
-
 #define MIN(x, y)   (((x) < (y)) ? (x) : (y))
 #define MAX(x, y)   (((x) > (y)) ? (x) : (y))
 
@@ -238,7 +235,19 @@ public:
 };
 
 class Oscillator {
-    uint32_t phase, dphase, waveform;
+    /**
+     * Because the human ear is very sensitive to pitch, both
+     * the `phase` and `dphase` variables use the entire 32-bit
+     * unsigned range.
+     */
+    uint32_t phase;
+    /**
+     * Because the human ear is very sensitive to pitch, both
+     * the `phase` and `dphase` variables use the entire 32-bit
+     * unsigned range.
+     */
+    uint32_t dphase;
+    uint32_t waveform;
 
 public:
     Oscillator() {
@@ -246,7 +255,7 @@ public:
     }
 
     void setfreq(float f) {
-        dphase = (int32_t)(UNIT * f / SAMPLING_RATE);
+        dphase = (int32_t)((f * (1LL << 32)) / SAMPLING_RATE);
     }
     void setwaveform(int32_t x) {
         // 0 ramp, 1 triangle, 2 square

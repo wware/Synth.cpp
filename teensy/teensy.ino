@@ -2,9 +2,11 @@
 
 #include "synth.h"
 #include "voice.h"
+#include "tests.h"
 
 #define KEYBOARD 1
 #define NUM_KEYS 11
+Key *keyboard[NUM_KEYS];
 
 /** @file */
 
@@ -23,6 +25,11 @@ class FunctionKey : public Key
     void keydown(void) {
         switch (id) {
             case 8:
+                if (keyboard[9].state && keyboard[10].state) {
+                    run_tests();
+                    Serial.println("Tests done");
+                    return;
+                }
                 s.quiet();
                 cli();
                 use_synth(&s);

@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
 
 #include "teensy/synth.h"
 #include "teensy/voice.h"
+#include "teensy/tests.h"
 
 #define NUM_VOICES 8
 
@@ -13,8 +15,12 @@ Synth s;
 ISynth *synth_ary[NUM_VOICES];
 extern uint32_t tune[];
 
-int main(void)
+int main(int argc, char *argv[])
 {
+    if (argc == 2 && strncmp(argv[1], "-t", 2) == 0) {
+        return run_tests();
+    }
+
     synth_ary[0] = &s;
     use_synth_array(synth_ary, NUM_VOICES);
     use_synth(0);

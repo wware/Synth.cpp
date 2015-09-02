@@ -3,14 +3,20 @@ import os
 import sys
 
 # Set __ARM = 0 so later it will be possible to disable assembly language.
-CMD = ("g++ -Wall -g -D__ARM=0 -Iteensy -o foo test.cpp teensy/synth.cpp teensy/tune.cpp")
+CMD = ("g++ -Wall -g -D__ARM=0 -Iteensy -o foo test.cpp teensy/synth.cpp teensy/tune.cpp teensy/tests.cpp")
 assert os.system(CMD) == 0, CMD
 
+just_tests = False
 if 'valgrind' in sys.argv[1:]:
     CMD = "valgrind --tool=callgrind --dump-instr=yes --collect-jumps=yes ./foo"
+elif 'tests' in sys.argv[1:]:
+    CMD = "./foo -t"
+    just_tests = True
 else:
     CMD = "./foo"
 assert os.system(CMD) == 0, CMD
+if just_tests:
+    sys.exit(0)
 
 if 'gnuplot' in sys.argv[1:]:
     os.system("echo \"set term png; set output 'output.png';"
