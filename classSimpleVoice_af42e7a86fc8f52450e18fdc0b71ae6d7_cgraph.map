@@ -1,0 +1,7 @@
+<map id="SimpleVoice::SimpleVoice" name="SimpleVoice::SimpleVoice">
+<area shape="rect" id="node2" href="$classOscillator.html#ac18e81b9e5b171cbfb865c1e84cba09f" title="Oscillator::setwaveform" alt="" coords="229,5,389,32"/>
+<area shape="rect" id="node3" href="$classADSR.html#a7424e4788c39e4441e7a54d58d1b12ef" title="ADSR::setA" alt="" coords="262,56,357,83"/>
+<area shape="rect" id="node4" href="$classADSR.html#a53d815a533060ae3741740696147a526" title="ADSR::setD" alt="" coords="261,107,357,133"/>
+<area shape="rect" id="node5" href="$classADSR.html#acb5d3c583dac95ccc2044daaa4ef7832" title="ADSR::setS" alt="" coords="262,157,357,184"/>
+<area shape="rect" id="node6" href="$classADSR.html#af25f31c097d0f2d1f3151bf940fc21cf" title="ADSR::setR" alt="" coords="261,208,357,235"/>
+</map>

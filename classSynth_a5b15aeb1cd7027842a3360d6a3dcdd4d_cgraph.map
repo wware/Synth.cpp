@@ -1,0 +1,7 @@
+<map id="Synth::keydown" name="Synth::keydown">
+<area shape="rect" id="node2" href="$classIVoice.html#a2914586008f842a7b7838a84ab42e741" title="IVoice::idle" alt="" coords="214,5,301,32"/>
+<area shape="rect" id="node3" href="$classSynth.html#a5c3cb5661596836d10029ede281beb21" title="Synth::get_next_available\l_voice" alt="" coords="171,57,343,98"/>
+<area shape="rect" id="node4" href="$classIVoice.html#a7747f69ddb8cd957a070e1de517860ae" title="IVoice::setfreq" alt="" coords="204,123,311,149"/>
+<area shape="rect" id="node5" href="$namespacetest.html#abb93d398cc23f4feebdd5fd9c7870a48" title="test.f" alt="" coords="231,173,283,200"/>
+<area shape="rect" id="node6" href="$classIVoice.html#a6398377858321eb8e40f23849727c90d" title="IVoice::keydown" alt="" coords="198,224,317,251"/>
+</map>

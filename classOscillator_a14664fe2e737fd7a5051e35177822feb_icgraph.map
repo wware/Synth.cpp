@@ -1,0 +1,5 @@
+<map id="Oscillator::setfreq" name="Oscillator::setfreq">
+<area shape="rect" id="node2" href="$classSimpleVoice.html#a4bef05ca6e6a3b22293a057a2659fcdc" title="SimpleVoice::setfreq" alt="" coords="195,5,338,32"/>
+<area shape="rect" id="node3" href="$classTwoSquaresVoice.html#a4be08baf91f0b263449ea9bc707cb4bb" title="TwoSquaresVoice::setfreq" alt="" coords="179,56,355,83"/>
+<area shape="rect" id="node4" href="$classNoisyVoice.html#a693b7e3b81166f1fc65087c8720edffb" title="NoisyVoice::setfreq" alt="" coords="198,107,335,133"/>
+</map>

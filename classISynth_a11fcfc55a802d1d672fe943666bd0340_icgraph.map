@@ -1,0 +1,7 @@
+<map id="ISynth::keyup" name="ISynth::keyup">
+<area shape="rect" id="node2" href="$classKey.html#aba5f7b12364551bab7d04c061355e8e0" title="Key::keyup" alt="" coords="157,5,245,32"/>
+<area shape="rect" id="node4" href="$synth_8h.html#ad7d3f26252a14acc98ee7ea2d0a48eb8" title="play_tune" alt="" coords="162,56,241,83"/>
+<area shape="rect" id="node3" href="$classKey.html#a8b41577c82e93b083f8d8c1f5423b997" title="Key::check" alt="" coords="293,5,381,32"/>
+<area shape="rect" id="node5" href="$teensy_8cpp.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="loop" alt="" coords="314,56,361,83"/>
+<area shape="rect" id="node6" href="$test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="312,107,363,133"/>
+</map>

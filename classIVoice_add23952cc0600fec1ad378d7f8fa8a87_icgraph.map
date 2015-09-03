@@ -1,0 +1,4 @@
+<map id="IVoice::output" name="IVoice::output">
+<area shape="rect" id="node2" href="$classSynth.html#a6805dd671e8846e60823535738f1fc65" title="Synth::get_12_bit_value" alt="" coords="157,5,320,32"/>
+<area shape="rect" id="node3" href="$classSynth.html#a1e066fd25b4cc046bdec7ac74b43e379" title="Synth::compute_sample" alt="" coords="368,5,531,32"/>
+</map>

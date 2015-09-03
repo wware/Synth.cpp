@@ -1,0 +1,5 @@
+<map id="SimpleVoice" name="SimpleVoice">
+<area shape="rect" id="node2" href="$classIVoice.html" title="IVoice" alt="" coords="5,5,63,32"/>
+<area shape="rect" id="node3" href="$classOscillator.html" title="Oscillator" alt="" coords="88,5,164,32"/>
+<area shape="rect" id="node4" href="$classADSR.html" title="ADSR" alt="" coords="190,5,249,32"/>
+</map>

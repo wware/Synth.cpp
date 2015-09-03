@@ -1,0 +1,9 @@
+<map id="teensy/synth.h" name="teensy/synth.h">
+<area shape="rect" id="node2" href="$synth_8cpp.html" title="teensy/synth.cpp" alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node3" href="$teensy_8cpp.html" title="teensy/teensy.cpp" alt="" coords="115,155,244,181"/>
+<area shape="rect" id="node4" href="$voice_8h.html" title="teensy/voice.h" alt="" coords="203,80,309,107"/>
+<area shape="rect" id="node5" href="$teensy_8ino.html" title="teensy/teensy.ino" alt="" coords="269,155,395,181"/>
+<area shape="rect" id="node6" href="$test_8cpp.html" title="test.cpp" alt="" coords="419,155,488,181"/>
+<area shape="rect" id="node7" href="$tests_8h.html" title="teensy/tests.h" alt="" coords="385,80,489,107"/>
+<area shape="rect" id="node8" href="$tests_8cpp.html" title="teensy/tests.cpp" alt="" coords="513,155,631,181"/>
+</map>

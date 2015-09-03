@@ -1,0 +1,5 @@
+<map id="ADSR::quiet" name="ADSR::quiet">
+<area shape="rect" id="node2" href="$classSimpleVoice.html#a0e13cba1da7e5c484c5219335bbfcc22" title="SimpleVoice::quiet" alt="" coords="167,5,297,32"/>
+<area shape="rect" id="node3" href="$classTwoSquaresVoice.html#a953b8c0d41f504a15fdff2642e143a20" title="TwoSquaresVoice::quiet" alt="" coords="150,56,314,83"/>
+<area shape="rect" id="node4" href="$classNoisyVoice.html#ae357cd4dcf942d20d7dd99d29e0dc7b8" title="NoisyVoice::quiet" alt="" coords="169,107,295,133"/>
+</map>

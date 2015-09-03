@@ -1,0 +1,5 @@
+<map id="Queue::write" name="Queue::write">
+<area shape="rect" id="node2" href="$classSynth.html#a4c92470e9e648530e56ba62f892c8f12" title="Synth::write_sample" alt="" coords="149,35,291,61"/>
+<area shape="rect" id="node3" href="$classSynth.html#a1e066fd25b4cc046bdec7ac74b43e379" title="Synth::compute_sample" alt="" coords="339,5,501,32"/>
+<area shape="rect" id="node4" href="$classThreadSafeSynth.html#a6b4bd3815a33c3d971959fd0e1dc7bb5" title="ThreadSafeSynth::write\l_sample" alt="" coords="341,57,499,98"/>
+</map>

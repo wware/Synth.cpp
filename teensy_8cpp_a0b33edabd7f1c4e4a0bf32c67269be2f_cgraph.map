@@ -1,0 +1,9 @@
+<map id="loop" name="loop">
+<area shape="rect" id="node2" href="$synth_8cpp.html#ad7d3f26252a14acc98ee7ea2d0a48eb8" title="play_tune" alt="" coords="146,95,225,121"/>
+<area shape="rect" id="node3" href="$synth_8cpp.html#af624d85ee1e30221d4c78f58f0b149d4" title="get_synth" alt="" coords="338,5,417,32"/>
+<area shape="rect" id="node8" href="$classISynth.html#a9785b0e3fc17a1b3623c284eed78382d" title="ISynth::compute_sample" alt="" coords="102,145,269,172"/>
+<area shape="rect" id="node4" href="$classISynth.html#a3a7df0dc1bbe1bcab71a0953be2ce192" title="ISynth::keydown" alt="" coords="317,56,437,83"/>
+<area shape="rect" id="node5" href="$classISynth.html#a11fcfc55a802d1d672fe943666bd0340" title="ISynth::keyup" alt="" coords="326,107,429,133"/>
+<area shape="rect" id="node6" href="$synth_8cpp.html#a0be4d94c1883d378e928cea08caff481" title="use_synth" alt="" coords="336,157,419,184"/>
+<area shape="rect" id="node7" href="$classISynth.html#a60954db89138b1e6d002c2c681b4dcd8" title="ISynth::ioctl" alt="" coords="331,208,423,235"/>
+</map>

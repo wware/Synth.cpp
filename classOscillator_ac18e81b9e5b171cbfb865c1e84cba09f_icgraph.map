@@ -1,0 +1,5 @@
+<map id="Oscillator::setwaveform" name="Oscillator::setwaveform">
+<area shape="rect" id="node2" href="$classNoisyVoice.html#a0503640610686cbe94b10f39fd5bab23" title="NoisyVoice::NoisyVoice" alt="" coords="237,5,401,32"/>
+<area shape="rect" id="node3" href="$classSimpleVoice.html#af42e7a86fc8f52450e18fdc0b71ae6d7" title="SimpleVoice::SimpleVoice" alt="" coords="231,56,407,83"/>
+<area shape="rect" id="node4" href="$classTwoSquaresVoice.html#ab25a9a0bb97d90a564e26df610f307fa" title="TwoSquaresVoice::TwoSquares\lVoice" alt="" coords="214,107,423,149"/>
+</map>

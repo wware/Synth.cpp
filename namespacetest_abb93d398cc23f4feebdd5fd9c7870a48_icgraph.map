@@ -1,0 +1,6 @@
+<map id="test.f" name="test.f">
+<area shape="rect" id="node2" href="$classSynth.html#a5b15aeb1cd7027842a3360d6a3dcdd4d" title="Synth::keydown" alt="" coords="118,5,234,32"/>
+<area shape="rect" id="node3" href="$classFilter.html#ac2b7a48b188fb923c5b97a9bdcf42c65" title="Filter::setF" alt="" coords="133,56,219,83"/>
+<area shape="rect" id="node5" href="$classNoisyVoice.html#a693b7e3b81166f1fc65087c8720edffb" title="NoisyVoice::setfreq" alt="" coords="107,107,245,133"/>
+<area shape="rect" id="node4" href="$classNoisyVoice.html#a91549ccb5c6915083c609392a4f7ace6" title="NoisyVoice::step" alt="" coords="293,56,416,83"/>
+</map>

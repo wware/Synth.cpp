@@ -1,0 +1,6 @@
+<map id="ThreadSafeSynth" name="ThreadSafeSynth">
+<area shape="rect" id="node2" href="$classSynth.html" title="Synth" alt="" coords="91,109,145,136"/>
+<area shape="rect" id="node3" href="$classISynth.html" title="ISynth" alt="" coords="5,5,64,32"/>
+<area shape="rect" id="node4" href="$classIVoice.html" title="IVoice" alt="" coords="89,5,147,32"/>
+<area shape="rect" id="node5" href="$classQueue.html" title="Queue" alt="" coords="194,5,253,32"/>
+</map>

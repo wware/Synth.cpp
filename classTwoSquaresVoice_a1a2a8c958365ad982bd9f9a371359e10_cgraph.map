@@ -1,0 +1,4 @@
+<map id="TwoSquaresVoice::output" name="TwoSquaresVoice::output">
+<area shape="rect" id="node2" href="$classADSR.html#a620dc17d6b62922b9949bf2fc6b2c708" title="ADSR::output" alt="" coords="236,5,340,32"/>
+<area shape="rect" id="node3" href="$classOscillator.html#a0d75f57ed266fa0b27bea51545c7ddac" title="Oscillator::output" alt="" coords="227,56,349,83"/>
+</map>

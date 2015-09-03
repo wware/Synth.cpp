@@ -1,0 +1,7 @@
+<map id="Synth::compute_sample" name="Synth::compute_sample">
+<area shape="rect" id="node2" href="$classIVoice.html#aab8593e3210c21aa6ee8d083bf46a165" title="IVoice::step" alt="" coords="251,5,343,32"/>
+<area shape="rect" id="node3" href="$classSynth.html#a6805dd671e8846e60823535738f1fc65" title="Synth::get_12_bit_value" alt="" coords="216,56,379,83"/>
+<area shape="rect" id="node5" href="$classSynth.html#a4c92470e9e648530e56ba62f892c8f12" title="Synth::write_sample" alt="" coords="227,107,368,133"/>
+<area shape="rect" id="node4" href="$classIVoice.html#add23952cc0600fec1ad378d7f8fa8a87" title="IVoice::output" alt="" coords="427,56,530,83"/>
+<area shape="rect" id="node6" href="$classQueue.html#a45ffef929683b172ebe84de92382d4c6" title="Queue::write" alt="" coords="431,107,527,133"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Synth" name="Synth">
+<area shape="rect" id="node2" href="$classISynth.html" title="ISynth" alt="" coords="5,5,64,32"/>
+<area shape="rect" id="node3" href="$classIVoice.html" title="IVoice" alt="" coords="89,5,147,32"/>
+<area shape="rect" id="node4" href="$classQueue.html" title="Queue" alt="" coords="194,5,253,32"/>
+</map>

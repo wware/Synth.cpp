@@ -1,0 +1,5 @@
+<map id="Oscillator::step" name="Oscillator::step">
+<area shape="rect" id="node2" href="$classSimpleVoice.html#a523ebab932ac88d8168701d6135e008a" title="SimpleVoice::step" alt="" coords="183,5,311,32"/>
+<area shape="rect" id="node3" href="$classTwoSquaresVoice.html#ac19409e627beee443dcc5e0e8cd74b62" title="TwoSquaresVoice::step" alt="" coords="166,56,327,83"/>
+<area shape="rect" id="node4" href="$classNoisyVoice.html#a91549ccb5c6915083c609392a4f7ace6" title="NoisyVoice::step" alt="" coords="185,107,308,133"/>
+</map>

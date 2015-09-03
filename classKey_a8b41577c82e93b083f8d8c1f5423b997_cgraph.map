@@ -1,0 +1,6 @@
+<map id="Key::check" name="Key::check">
+<area shape="rect" id="node2" href="$classKey.html#aa07f1e54866b5e06c3dbbb576134d14d" title="Key::keydown" alt="" coords="142,5,247,32"/>
+<area shape="rect" id="node4" href="$classKey.html#aba5f7b12364551bab7d04c061355e8e0" title="Key::keyup" alt="" coords="151,56,239,83"/>
+<area shape="rect" id="node3" href="$classISynth.html#a3a7df0dc1bbe1bcab71a0953be2ce192" title="ISynth::keydown" alt="" coords="296,5,416,32"/>
+<area shape="rect" id="node5" href="$classISynth.html#a11fcfc55a802d1d672fe943666bd0340" title="ISynth::keyup" alt="" coords="305,56,407,83"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Queue::size" name="Queue::size">
+<area shape="rect" id="node2" href="$classQueue.html#acc6043ceb9c93f7cf5eab8d022a3a9bf" title="Queue::empty" alt="" coords="147,5,251,32"/>
+<area shape="rect" id="node4" href="$classQueue.html#a3788d83c6711426d7c2f33ed268d72bf" title="Queue::full" alt="" coords="156,56,241,83"/>
+<area shape="rect" id="node3" href="$classQueue.html#af3d3a0e983e1d83b7fa551e470a4a93c" title="Queue::read" alt="" coords="300,5,393,32"/>
+<area shape="rect" id="node5" href="$classQueue.html#a45ffef929683b172ebe84de92382d4c6" title="Queue::write" alt="" coords="299,56,395,83"/>
+</map>

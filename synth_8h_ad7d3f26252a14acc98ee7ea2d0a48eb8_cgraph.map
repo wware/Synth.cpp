@@ -1,0 +1,7 @@
+<map id="play_tune" name="play_tune">
+<area shape="rect" id="node2" href="$synth_8cpp.html#af624d85ee1e30221d4c78f58f0b149d4" title="get_synth" alt="" coords="154,5,233,32"/>
+<area shape="rect" id="node3" href="$classISynth.html#a3a7df0dc1bbe1bcab71a0953be2ce192" title="ISynth::keydown" alt="" coords="133,56,253,83"/>
+<area shape="rect" id="node4" href="$classISynth.html#a11fcfc55a802d1d672fe943666bd0340" title="ISynth::keyup" alt="" coords="142,107,245,133"/>
+<area shape="rect" id="node5" href="$synth_8cpp.html#a0be4d94c1883d378e928cea08caff481" title="use_synth" alt="" coords="152,157,235,184"/>
+<area shape="rect" id="node6" href="$classISynth.html#a60954db89138b1e6d002c2c681b4dcd8" title="ISynth::ioctl" alt="" coords="147,208,239,235"/>
+</map>

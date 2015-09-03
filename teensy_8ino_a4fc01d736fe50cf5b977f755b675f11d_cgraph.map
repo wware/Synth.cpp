@@ -1,0 +1,8 @@
+<map id="setup" name="setup">
+<area shape="rect" id="node2" href="$classSynth.html#a0e38c4573296203ee6c869f4b087e147" title="Synth::add" alt="" coords="127,5,212,32"/>
+<area shape="rect" id="node3" href="$classSynth.html#ab547ec735482881d9cf38f88fccd6237" title="Synth::quiet" alt="" coords="123,56,215,83"/>
+<area shape="rect" id="node4" href="$synth_8cpp.html#ad3fd80c6ee424699c9090107264e523b" title="use_synth_array" alt="" coords="110,107,229,133"/>
+<area shape="rect" id="node5" href="$synth_8cpp.html#a0be4d94c1883d378e928cea08caff481" title="use_synth" alt="" coords="128,157,211,184"/>
+<area shape="rect" id="node6" href="$teensy_8ino.html#a3ac98981aa3fa8b3464dd10584116865" title="timer_interrupt" alt="" coords="117,208,222,235"/>
+<area shape="rect" id="node7" href="$synth_8cpp.html#af624d85ee1e30221d4c78f58f0b149d4" title="get_synth" alt="" coords="278,208,357,235"/>
+</map>

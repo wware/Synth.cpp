@@ -1,0 +1,5 @@
+<map id="SimpleVoice::step" name="SimpleVoice::step">
+<area shape="rect" id="node2" href="$classOscillator.html#a1c81f8fff16ae6f7cd824a024ef08ee6" title="Oscillator::step" alt="" coords="182,5,293,32"/>
+<area shape="rect" id="node3" href="$classADSR.html#a1330f5b0cfb4cfbfb4dd31412a02e7a6" title="ADSR::step" alt="" coords="191,56,284,83"/>
+<area shape="rect" id="node4" href="$classADSR.html#ac96e477bdba8c69da05bfdc45b5073b2" title="ADSR::rare_step" alt="" coords="341,56,464,83"/>
+</map>

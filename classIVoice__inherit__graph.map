@@ -1,0 +1,5 @@
+<map id="IVoice" name="IVoice">
+<area shape="rect" id="node2" href="$classNoisyVoice.html" title="NoisyVoice" alt="" coords="5,80,93,107"/>
+<area shape="rect" id="node3" href="$classSimpleVoice.html" title="SimpleVoice" alt="" coords="118,80,212,107"/>
+<area shape="rect" id="node4" href="$classTwoSquaresVoice.html" title="TwoSquaresVoice" alt="" coords="237,80,365,107"/>
+</map>

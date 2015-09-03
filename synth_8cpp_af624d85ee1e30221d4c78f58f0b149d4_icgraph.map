@@ -1,0 +1,7 @@
+<map id="get_synth" name="get_synth">
+<area shape="rect" id="node2" href="$teensy_8cpp.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="loop" alt="" coords="293,5,339,32"/>
+<area shape="rect" id="node3" href="$synth_8h.html#ad7d3f26252a14acc98ee7ea2d0a48eb8" title="play_tune" alt="" coords="147,56,226,83"/>
+<area shape="rect" id="node5" href="$teensy_8cpp.html#a3ac98981aa3fa8b3464dd10584116865" title="timer_interrupt" alt="" coords="134,107,239,133"/>
+<area shape="rect" id="node4" href="$test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="291,56,341,83"/>
+<area shape="rect" id="node6" href="$teensy_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="289,107,343,133"/>
+</map>

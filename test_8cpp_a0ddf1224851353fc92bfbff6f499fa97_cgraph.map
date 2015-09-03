@@ -1,0 +1,20 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$tests_8cpp.html#aa04364c8d45f7cf0f27881f433bc1477" title="run_tests" alt="" coords="147,56,223,83"/>
+<area shape="rect" id="node6" href="$synth_8cpp.html#ad3fd80c6ee424699c9090107264e523b" title="use_synth_array" alt="" coords="126,107,245,133"/>
+<area shape="rect" id="node7" href="$synth_8cpp.html#a0be4d94c1883d378e928cea08caff481" title="use_synth" alt="" coords="355,157,437,184"/>
+<area shape="rect" id="node8" href="$classSynth.html#a0e38c4573296203ee6c869f4b087e147" title="Synth::add" alt="" coords="143,208,228,235"/>
+<area shape="rect" id="node9" href="$synth_8cpp.html#ad7d3f26252a14acc98ee7ea2d0a48eb8" title="play_tune" alt="" coords="146,259,225,285"/>
+<area shape="rect" id="node14" href="$classSynth.html#a1e066fd25b4cc046bdec7ac74b43e379" title="Synth::compute_sample" alt="" coords="104,436,267,463"/>
+<area shape="rect" id="node18" href="$classSynth.html#a09a045b0364dc27bc865a2deb6905ddf" title="Synth::get_sample" alt="" coords="120,537,251,564"/>
+<area shape="rect" id="node3" href="$tests_8cpp.html#a30f6745ee65daafb20460f200a54352e" title="test1" alt="" coords="371,5,421,32"/>
+<area shape="rect" id="node4" href="$tests_8cpp.html#a2c58143eae3e0872faaea9c10dd2cb81" title="test2" alt="" coords="371,56,421,83"/>
+<area shape="rect" id="node5" href="$tests_8cpp.html#a45f47bd7800105b6f25d022b7e7df661" title="test3" alt="" coords="371,107,421,133"/>
+<area shape="rect" id="node10" href="$synth_8cpp.html#af624d85ee1e30221d4c78f58f0b149d4" title="get_synth" alt="" coords="357,208,435,235"/>
+<area shape="rect" id="node11" href="$classISynth.html#a3a7df0dc1bbe1bcab71a0953be2ce192" title="ISynth::keydown" alt="" coords="336,259,456,285"/>
+<area shape="rect" id="node12" href="$classISynth.html#a11fcfc55a802d1d672fe943666bd0340" title="ISynth::keyup" alt="" coords="345,309,447,336"/>
+<area shape="rect" id="node13" href="$classISynth.html#a60954db89138b1e6d002c2c681b4dcd8" title="ISynth::ioctl" alt="" coords="350,360,442,387"/>
+<area shape="rect" id="node15" href="$classIVoice.html#aab8593e3210c21aa6ee8d083bf46a165" title="IVoice::step" alt="" coords="350,411,442,437"/>
+<area shape="rect" id="node16" href="$classSynth.html#a6805dd671e8846e60823535738f1fc65" title="Synth::get_12_bit_value" alt="" coords="315,461,477,488"/>
+<area shape="rect" id="node17" href="$classSynth.html#a4c92470e9e648530e56ba62f892c8f12" title="Synth::write_sample" alt="" coords="325,512,467,539"/>
+<area shape="rect" id="node19" href="$classQueue.html#af3d3a0e983e1d83b7fa551e470a4a93c" title="Queue::read" alt="" coords="349,563,443,589"/>
+</map>

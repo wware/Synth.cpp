@@ -1,0 +1,5 @@
+<map id="ADSR::state" name="ADSR::state">
+<area shape="rect" id="node2" href="$classSimpleVoice.html#a0b93c9a9e8cf8219b6b1a1a182fdb70c" title="SimpleVoice::idle" alt="" coords="169,5,292,32"/>
+<area shape="rect" id="node3" href="$classTwoSquaresVoice.html#a89f2ae652457fb44c5e3b74e25a2728b" title="TwoSquaresVoice::idle" alt="" coords="153,56,309,83"/>
+<area shape="rect" id="node4" href="$classNoisyVoice.html#ab4fc75b7fc9ae6ea20965770adb82a33" title="NoisyVoice::idle" alt="" coords="172,107,289,133"/>
+</map>
