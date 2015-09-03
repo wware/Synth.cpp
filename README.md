@@ -6,6 +6,8 @@ python -m markdown README.md > README.html
 Modular Music Synthesis in C++
 ====
 
+Docs available [here](http://wware.github.io/Synth.cpp/).
+
 Historical background
 ----
 
