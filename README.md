@@ -50,9 +50,9 @@ This script works on both OS X and Ubuntu. It generates an audio file and plays 
 trivisynth
 ====
 
-I've posted this as a project on [Frizing.org](http://fritzing.org/projects/trivisynth#).
+I've posted this as a project on [Fritzing.org](http://fritzing.org/projects/trivisynth#).
 
-![A picture of the trivisynth](https://lh3.googleusercontent.com/tSo49FZMQ2PZuDIjJzavJvc45A1Cf91DhcYhVb45Q_BDbQXfR_f2IWK63ptriyPMP9Le3eJpGUe7yvTVp3cwlVbKMRs4iC5uUV4V62iX-wCddOKisSDtSAdTb1LvalenJMBUtVIajahGO530ErIOzeYtP671tXtWqocGeDMaA7mRfVsnrno92JqKhon-7BOq9P_FC6Z55-XAdKhgL8GJHpnfwD8sGNDwLHpy4NVnxuFKNQdN6eJF6AvQtbRDrvEYkb18sD3Jcs9x3rfgB0-k1crRgv8HBYke_NEI0gWB6ympUBT866xli2jJ0lANcaMBMdN5TXHvLdL_c87GqyJoo2x-e0y-kVUoRdw9mZqCNvfmUmKPTmw5JAi8tqjApq1GdCPvLwUhf4qQvQWkR5VH9gEd1jWx_hJVzCa-V7xPjw7ewFKIrvFGEeP0gX8Ze6JzdanAwQoAYHcecEh_QK-HDbxqsOK59r4i9nCGEB5_yx4MzjiaOvw9ubp41KQzO2ZGaDrABA=w810-h607-no)
+![A picture of the trivisynth](trivisynth/physical_trivisynth.jpg)
 
 ![Circuit for the trivisynth](trivisynth/trivisynth.png)
 
