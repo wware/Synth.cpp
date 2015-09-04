@@ -92,76 +92,77 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;Modular Music Synthesis in C++</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;====</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;Historical background</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;----</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;Way back when, one of my friends in high school was a guy named [Dave Wilson](http:<span class="comment">//www.matrixsynth.com/2010/08/rip-david-hillel-wilson-curator-of-new.html) whose father got him into 1970s-era Moog-style analog electronic music synthesizers. Dave created a museum of historical synthesizers in his home in Nashua, New Hampshire. Throughout our high school and college years, we exchanged ideas and circuits and bits of lore for various synthesizer hacks.</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;Docs available [here](http:<span class="comment">//wware.github.io/Synth.cpp/).</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;Historical background</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;----</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;Music synthesizers of that era were composed of [modules](https:<span class="comment">//en.wikipedia.org/wiki/Modular_synthesizer) and were actually special-purpose [analog computers](https://en.wikipedia.org/wiki/Analog_computer), performing arithmetic operations with [integrators, summers, and other such circuits](https://courses.engr.illinois.edu/ece486/labs/lab1/analog_computer_manual.pdf). These computations can be performed digitally by a microprocessor or special-purpose digital circuit (e.g. FPGA). So Dave and I both at various points and in various contexts wrote code to do that.</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;Way back when, one of my friends in high school was a guy named [Dave Wilson](http:<span class="comment">//www.matrixsynth.com/2010/08/rip-david-hillel-wilson-curator-of-new.html) whose father got him into 1970s-era Moog-style analog electronic music synthesizers. Dave created a museum of historical synthesizers in his home in Nashua, New Hampshire. Throughout our high school and college years, we exchanged ideas and circuits and bits of lore for various synthesizer hacks.</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;Sound generation in <span class="keyword">this</span> code is done in C++, and can run on the [Teensy 3.1 board](https:<span class="comment">//www.pjrc.com/teensy/teensy31.html) which has a 32-bit ARM microcontroller capable of running at 96 MHz.</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;Music synthesizers of that era were composed of [modules](https:<span class="comment">//en.wikipedia.org/wiki/Modular_synthesizer) and were actually special-purpose [analog computers](https://en.wikipedia.org/wiki/Analog_computer), performing arithmetic operations with [integrators, summers, and other such circuits](https://courses.engr.illinois.edu/ece486/labs/lab1/analog_computer_manual.pdf). These computations can be performed digitally by a microprocessor or special-purpose digital circuit (e.g. FPGA). So Dave and I both at various points and in various contexts wrote code to do that.</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;Embodiments</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;----</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;This code has two readily available embodiments. One is the test.py script which will generate an audio file called <span class="stringliteral">&quot;quux.aiff&quot;</span> and play the file.</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;Sound generation in <span class="keyword">this</span> code is done in C++, and can run on the [Teensy 3.1 board](https:<span class="comment">//www.pjrc.com/teensy/teensy31.html) which has a 32-bit ARM microcontroller capable of running at 96 MHz.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;Embodiments</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;----</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;The other is an easy-to-build piece of electronics <span class="keyword">using</span> a Teensy board, some batteries, some pushbuttons, a few components, and a pair of earbuds. I call <span class="keyword">this</span> thing a <span class="stringliteral">&quot;trivisynth&quot;</span> because it is the most trivial piece of hardware that one could justifiably call a synthesizer.</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;This code has two readily available embodiments. One is the test.py script which will generate an audio file called <span class="stringliteral">&quot;quux.aiff&quot;</span> and play the file.</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;Performance considerations</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;----</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;The ARM core on the Teensy does not have floating-point hardware, so the most frequently performed calculations should be done with [fixed-point arithmetic](https:<span class="comment">//en.wikipedia.org/wiki/Fixed-point_arithmetic). On integer machines, divide operations are also slow, so alwyas prefer a right-shift whenever possible.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;The other is an easy-to-build piece of electronics <span class="keyword">using</span> a Teensy board, some batteries, some pushbuttons, a few components, and a pair of earbuds. I call <span class="keyword">this</span> thing a <span class="stringliteral">&quot;trivisynth&quot;</span> because it is the most trivial piece of hardware that one could justifiably call a synthesizer.</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;Performance considerations</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;----</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;An interrupt handler is used to transfer audio <a class="code" href="namespacefoo.html#ab2739b8cd306ffb4dd434a5b4ba356b5">samples</a> from a queue to the DAC. This should be done as quickly as possible.</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;The ARM core on the Teensy does not have floating-point hardware, so the most frequently performed calculations should be done with [fixed-point arithmetic](https:<span class="comment">//en.wikipedia.org/wiki/Fixed-point_arithmetic). On integer machines, divide operations are also slow, so alwyas prefer a right-shift whenever possible.</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;If the arithmetic is too slow, the queue will underrun because the frequency of the timer interrupt is fixed. This is indicated by the LED turning on. If you see the LED, your options are to reduce the sampling rate or reduce the number of voices.</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;An interrupt handler is used to transfer audio samples from a queue to the DAC. This should be done as quickly as possible.</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;At some point I will take some time to thoroughly profile pieces of the code, particularly the <a class="code" href="classFilter.html#aebec6cd085748f9d54090e98ba152c3e">Filter::step</a>() method, and see where things should be more thoroughly optimized. The Teensy processor&#39;<a class="code" href="teensy_8cpp.html#a8a05116095b07a20efcff88c8582f55f">s</a> instruction set includes a nice multiply-accumulate that intrigues me.</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;If the arithmetic is too slow, the queue will underrun because the frequency of the timer interrupt is fixed. This is indicated by the LED turning on. If you see the LED, your options are to reduce the sampling rate or reduce the number of voices.</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;Structure of the code</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;----</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;The synthesis modules are defined in `teensy/synth.h` and `teensy/synth.cpp`. The voices that you can play are defined in `teensy/voice.h`. The code that uses these things to produce music is `teensy/teensy.ino` when running on the Teensy, and `test.cpp` when running on your laptop or desktop.</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;At some point I will take some time to thoroughly profile pieces of the code, particularly the <a class="code" href="classFilter.html#aebec6cd085748f9d54090e98ba152c3e">Filter::step</a>() method, and see where things should be more thoroughly optimized. The Teensy processor&#39;<a class="code" href="teensy_8ino.html#a8a05116095b07a20efcff88c8582f55f">s</a> instruction set includes a nice multiply-accumulate that intrigues me.</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;Structure of the code</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;----</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;When you want to start tinkering, the place to start is `voice.h`, where you can combine the modules in different ways to get different sounds. If you design a new instrument, you&#39;ll want to modify `teensy.ino` for your <a class="code" href="teensy_8cpp.html#a51100ead16111af47decec69c1ac6d3a">keyboard</a> layout.</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;The synthesis modules are defined in `teensy/synth.h` and `teensy/synth.cpp`. The voices that you can play are defined in `teensy/voice.h`. The code that uses these things to produce music is `teensy/teensy.ino` when running on the Teensy, and `test.cpp` when running on your laptop or desktop.</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;test.py</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;====</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;This script works on both OS X and Ubuntu. It generates an audio file and plays it.</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;When you want to start tinkering, the place to start is `voice.h`, where you can combine the modules in different ways to get different sounds. If you design a new instrument, you&#39;ll want to modify `teensy.ino` for your <a class="code" href="teensy_8ino.html#a51100ead16111af47decec69c1ac6d3a">keyboard</a> layout.</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;test.py</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;====</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;trivisynth</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;====</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;I&#39;ve posted this as a project on [Frizing.org](http:<span class="comment">//fritzing.org/projects/trivisynth#).</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;This script works on both OS X and Ubuntu. It generates an audio file and plays it.</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;trivisynth</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;====</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;![A picture of the trivisynth](https:<span class="comment">//lh3.googleusercontent.com/tSo49FZMQ2PZuDIjJzavJvc45A1Cf91DhcYhVb45Q_BDbQXfR_f2IWK63ptriyPMP9Le3eJpGUe7yvTVp3cwlVbKMRs4iC5uUV4V62iX-wCddOKisSDtSAdTb1LvalenJMBUtVIajahGO530ErIOzeYtP671tXtWqocGeDMaA7mRfVsnrno92JqKhon-7BOq9P_FC6Z55-XAdKhgL8GJHpnfwD8sGNDwLHpy4NVnxuFKNQdN6eJF6AvQtbRDrvEYkb18sD3Jcs9x3rfgB0-k1crRgv8HBYke_NEI0gWB6ympUBT866xli2jJ0lANcaMBMdN5TXHvLdL_c87GqyJoo2x-e0y-kVUoRdw9mZqCNvfmUmKPTmw5JAi8tqjApq1GdCPvLwUhf4qQvQWkR5VH9gEd1jWx_hJVzCa-V7xPjw7ewFKIrvFGEeP0gX8Ze6JzdanAwQoAYHcecEh_QK-HDbxqsOK59r4i9nCGEB5_yx4MzjiaOvw9ubp41KQzO2ZGaDrABA=w810-h607-no)</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;I&#39;ve posted this as a project on [Frizing.org](http:<span class="comment">//fritzing.org/projects/trivisynth#).</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;![Circuit for the trivisynth](trivisynth/trivisynth.png)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;![A picture of the trivisynth](triviasynth/physical_trivisynth.jpg)</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;You&#39;ll need [Teensyduino](https:<span class="comment">//www.pjrc.com/teensy/teensyduino.html) set up in order to load the code onto your Teensy board. Install the Arduino IDE and the Teensyduino add-on on your laptop or desktop, and load the `teensy/teensy.ino` file. You should also see `synth.h`, `synth.cpp`, and `voice.h` as additional tabs in the IDE. Use the checkmark button in the upper left to verify the code is syntactically correct and compile it, and the arrow button to load the code into your Teensy.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;![Circuit for the trivisynth](trivisynth/trivisynth.png)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;You might want to first build it on a solderless breadboard and solder it down later. To get started, supply power to the Teensy and build the audio output circuit, and then</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;You&#39;ll need [Teensyduino](https:<span class="comment">//www.pjrc.com/teensy/teensyduino.html) set up in order to load the code onto your Teensy board. Install the Arduino IDE and the Teensyduino add-on on your laptop or desktop, and load the `teensy/teensy.ino` file. You should also see `synth.h`, `synth.cpp`, and `voice.h` as additional tabs in the IDE. Use the checkmark button in the upper left to verify the code is syntactically correct and compile it, and the arrow button to load the code into your Teensy.</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;Teensy 3.1 info</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;----</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;* [The Freescale Semiconductor web page](http:<span class="comment">//www.freescale.com/webapp/sps/site/prod_summary.jsp?code=K20_50) for the MK20DX256VLH7 processor used in the Teensy 3.1.</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;* [The datasheet](https:<span class="comment">//www.pjrc.com/teensy/K20P64M72SF1RM.pdf) talks about GPIO programming starting on page 1331.</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;* [Here](https:<span class="comment">//www.pjrc.com/teensy/schematic.html) is the Teensy 3.1 schematic.</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;* [Here](https:<span class="comment">//forum.pjrc.com/threads/25317-Assembly-coding-for-Teensy3-1) is a great discussion of embedding assembly in C code. Also see [this](http://www.ethernut.de/en/documents/arm-inline-asm.html).</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;* [A C header file](http:<span class="comment">//www.keil.com/dd/docs/arm/freescale/kinetis/mk20d7.h) for registers in the MK20DX.</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;* [Some nice info](http:<span class="comment">//www.peter-cockerell.net/aalp/html/frames.html) on ARM assembly language.</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;* There is an [online ARM C++ compiler](http:<span class="comment">//assembly.ynh.io/).</span></div>
-<div class="ttc" id="teensy_8cpp_html_a8a05116095b07a20efcff88c8582f55f"><div class="ttname"><a href="teensy_8cpp.html#a8a05116095b07a20efcff88c8582f55f">s</a></div><div class="ttdeci">ThreadSafeSynth s</div><div class="ttdef"><b>Definition:</b> <a href="teensy_8cpp_source.html#l00055">teensy.cpp:55</a></div></div>
-<div class="ttc" id="namespacefoo_html_ab2739b8cd306ffb4dd434a5b4ba356b5"><div class="ttname"><a href="namespacefoo.html#ab2739b8cd306ffb4dd434a5b4ba356b5">foo.samples</a></div><div class="ttdeci">list samples</div><div class="ttdef"><b>Definition:</b> <a href="foo_8py_source.html#l00002">foo.py:2</a></div></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;You might want to first build it on a solderless breadboard and solder it down later. To get started, supply power to the Teensy and build the audio output circuit, and then</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;Teensy 3.1 info</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;----</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;* [The Freescale Semiconductor web page](http:<span class="comment">//www.freescale.com/webapp/sps/site/prod_summary.jsp?code=K20_50) for the MK20DX256VLH7 processor used in the Teensy 3.1.</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;* [The datasheet](https:<span class="comment">//www.pjrc.com/teensy/K20P64M72SF1RM.pdf) talks about GPIO programming starting on page 1331.</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;* [Here](https:<span class="comment">//www.pjrc.com/teensy/schematic.html) is the Teensy 3.1 schematic.</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;* [Here](https:<span class="comment">//forum.pjrc.com/threads/25317-Assembly-coding-for-Teensy3-1) is a great discussion of embedding assembly in C code. Also see [this](http://www.ethernut.de/en/documents/arm-inline-asm.html).</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;* [A C header file](http:<span class="comment">//www.keil.com/dd/docs/arm/freescale/kinetis/mk20d7.h) for registers in the MK20DX.</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;* [Some nice info](http:<span class="comment">//www.peter-cockerell.net/aalp/html/frames.html) on ARM assembly language.</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;* There is an [online ARM C++ compiler](http:<span class="comment">//assembly.ynh.io/).</span></div>
+<div class="ttc" id="teensy_8ino_html_a8a05116095b07a20efcff88c8582f55f"><div class="ttname"><a href="teensy_8ino.html#a8a05116095b07a20efcff88c8582f55f">s</a></div><div class="ttdeci">ThreadSafeSynth s</div><div class="ttdef"><b>Definition:</b> <a href="teensy_8ino_source.html#l00055">teensy.ino:55</a></div></div>
 <div class="ttc" id="classFilter_html_aebec6cd085748f9d54090e98ba152c3e"><div class="ttname"><a href="classFilter.html#aebec6cd085748f9d54090e98ba152c3e">Filter::step</a></div><div class="ttdeci">void step(int32_t x)</div><div class="ttdef"><b>Definition:</b> <a href="synth_8cpp_source.html#l00321">synth.cpp:321</a></div></div>
-<div class="ttc" id="teensy_8cpp_html_a51100ead16111af47decec69c1ac6d3a"><div class="ttname"><a href="teensy_8cpp.html#a51100ead16111af47decec69c1ac6d3a">keyboard</a></div><div class="ttdeci">Key * keyboard[NUM_KEYS]</div><div class="ttdef"><b>Definition:</b> <a href="teensy_8cpp_source.html#l00009">teensy.cpp:9</a></div></div>
+<div class="ttc" id="teensy_8ino_html_a51100ead16111af47decec69c1ac6d3a"><div class="ttname"><a href="teensy_8ino.html#a51100ead16111af47decec69c1ac6d3a">keyboard</a></div><div class="ttdeci">Key * keyboard[NUM_KEYS]</div><div class="ttdef"><b>Definition:</b> <a href="teensy_8ino_source.html#l00009">teensy.ino:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 3 2015 16:06:00 for Synth.cpp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 3 2015 19:58:47 for Synth.cpp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

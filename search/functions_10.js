@@ -7,7 +7,7 @@ var searchData=
   ['setq',['setQ',['../classFilter.html#a83a73ea5f8d65bc4f56a1a94444b2ce2',1,'Filter']]],
   ['setr',['setR',['../classADSR.html#af25f31c097d0f2d1f3151bf940fc21cf',1,'ADSR']]],
   ['sets',['setS',['../classADSR.html#acb5d3c583dac95ccc2044daaa4ef7832',1,'ADSR']]],
-  ['setup',['setup',['../teensy_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;teensy.cpp'],['../teensy_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;teensy.ino']]],
+  ['setup',['setup',['../teensy_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'teensy.ino']]],
   ['setwaveform',['setwaveform',['../classOscillator.html#ac18e81b9e5b171cbfb865c1e84cba09f',1,'Oscillator']]],
   ['simplevoice',['SimpleVoice',['../classSimpleVoice.html#af42e7a86fc8f52450e18fdc0b71ae6d7',1,'SimpleVoice']]],
   ['size',['size',['../classQueue.html#aed477c4f0a5482c4344e8bc044ce7b8b',1,'Queue']]],

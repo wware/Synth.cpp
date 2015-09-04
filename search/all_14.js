@@ -1,7 +1,6 @@
 var searchData=
 [
   ['t',['t',['../test_8cpp.html#ac310d9181e916ba43604099aee272c71',1,'test.cpp']]],
-  ['teensy_2ecpp',['teensy.cpp',['../teensy_8cpp.html',1,'']]],
   ['teensy_2eino',['teensy.ino',['../teensy_8ino.html',1,'']]],
   ['test',['test',['../namespacetest.html',1,'']]],
   ['test_2ecpp',['test.cpp',['../test_8cpp.html',1,'']]],
@@ -12,10 +11,10 @@ var searchData=
   ['tests_2ecpp',['tests.cpp',['../tests_8cpp.html',1,'']]],
   ['tests_2eh',['tests.h',['../tests_8h.html',1,'']]],
   ['threadsafesynth',['ThreadSafeSynth',['../classThreadSafeSynth.html',1,'']]],
-  ['timer_5finterrupt',['timer_interrupt',['../teensy_8cpp.html#a3ac98981aa3fa8b3464dd10584116865',1,'timer_interrupt(void):&#160;teensy.cpp'],['../teensy_8ino.html#a3ac98981aa3fa8b3464dd10584116865',1,'timer_interrupt(void):&#160;teensy.ino']]],
-  ['tune',['tune',['../teensy_8cpp.html#a285d72cd83a7a30e36ed910fe9e61e52',1,'tune():&#160;tune.cpp'],['../teensy_8ino.html#a285d72cd83a7a30e36ed910fe9e61e52',1,'tune():&#160;tune.cpp'],['../tune_8cpp.html#a285d72cd83a7a30e36ed910fe9e61e52',1,'tune():&#160;tune.cpp'],['../test_8cpp.html#a285d72cd83a7a30e36ed910fe9e61e52',1,'tune():&#160;tune.cpp']]],
+  ['timer_5finterrupt',['timer_interrupt',['../teensy_8ino.html#a3ac98981aa3fa8b3464dd10584116865',1,'teensy.ino']]],
+  ['tune',['tune',['../teensy_8ino.html#a285d72cd83a7a30e36ed910fe9e61e52',1,'tune():&#160;tune.cpp'],['../tune_8cpp.html#a285d72cd83a7a30e36ed910fe9e61e52',1,'tune():&#160;tune.cpp'],['../test_8cpp.html#a285d72cd83a7a30e36ed910fe9e61e52',1,'tune():&#160;tune.cpp']]],
   ['tune_2ecpp',['tune.cpp',['../tune_8cpp.html',1,'']]],
-  ['tune_5fpointer',['tune_pointer',['../synth_8cpp.html#af2398f489c4dd6624ea4f2a912f22310',1,'tune_pointer():&#160;synth.cpp'],['../teensy_8cpp.html#a28c3241840507ded5d354b20b438d86b',1,'tune_pointer():&#160;teensy.cpp'],['../teensy_8ino.html#a28c3241840507ded5d354b20b438d86b',1,'tune_pointer():&#160;teensy.ino']]],
+  ['tune_5fpointer',['tune_pointer',['../synth_8cpp.html#af2398f489c4dd6624ea4f2a912f22310',1,'tune_pointer():&#160;synth.cpp'],['../teensy_8ino.html#a28c3241840507ded5d354b20b438d86b',1,'tune_pointer():&#160;teensy.ino']]],
   ['two_5fk',['two_k',['../classFilter.html#acd317fc7bb9f6b1b3a4df292126632b2',1,'Filter']]],
   ['twosquaresvoice',['TwoSquaresVoice',['../classTwoSquaresVoice.html',1,'TwoSquaresVoice'],['../classTwoSquaresVoice.html#ab25a9a0bb97d90a564e26df610f307fa',1,'TwoSquaresVoice::TwoSquaresVoice()']]]
 ];

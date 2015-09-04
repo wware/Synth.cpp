@@ -1,5 +1,4 @@
 <map id="teensy/voice.h" name="teensy/voice.h">
-<area shape="rect" id="node2" href="$teensy_8cpp.html" title="teensy/teensy.cpp" alt="" coords="5,80,133,107"/>
-<area shape="rect" id="node3" href="$teensy_8ino.html" title="teensy/teensy.ino" alt="" coords="159,80,284,107"/>
-<area shape="rect" id="node4" href="$test_8cpp.html" title="test.cpp" alt="" coords="308,80,377,107"/>
+<area shape="rect" id="node2" href="$teensy_8ino.html" title="teensy/teensy.ino" alt="" coords="5,80,131,107"/>
+<area shape="rect" id="node3" href="$test_8cpp.html" title="test.cpp" alt="" coords="155,80,224,107"/>
 </map>
