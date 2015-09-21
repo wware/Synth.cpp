@@ -19,41 +19,40 @@ class ThreadSafeSynth : public Synth
     }
 };
 
+ThreadSafeSynth s, s2, s3;
+ISynth *synth_ary[3];
+
 class FunctionKey : public Key
 {
     void keyup(void) { /* nada */ }
     void keydown(void) {
         switch (id) {
             case 8:
-                if (keyboard[9].state && keyboard[10].state) {
+                if (keyboard[9]->state && keyboard[10]->state) {
                     run_tests();
                     Serial.println("Tests done");
                     return;
                 }
                 s.quiet();
                 cli();
-                use_synth(&s);
+                use_synth(0);
                 sei();
                 break;
             case 9:
                 s2.quiet();
                 cli();
-                use_synth(&s2);
+                use_synth(1);
                 sei();
                 break;
             case 10:
                 s3.quiet();
                 cli();
-                use_synth(&s3);
+                use_synth(2);
                 sei();
                 break;
         }
     }
 };
-
-Key *keyboard[NUM_KEYS];
-ThreadSafeSynth s, s2, s3;
-ISynth *synth_ary[3];
 
 int8_t pitches[] = { 0, 2, 4, 5, 7, 9, 11, 12 };
 extern uint32_t tune[];
