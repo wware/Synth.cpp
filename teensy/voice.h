@@ -86,8 +86,8 @@ public:
         adsr2.keyup();
     }
     int32_t output(void) {
-        return (((int32_t)adsr.output() * osc1.output()) >> 14) +
-            (((int32_t)adsr2.output() * osc2.output()) >> 14);
+        return (((int32_t)adsr.output() * osc1.output()) >> 15) +
+            (((int32_t)adsr2.output() * osc2.output()) >> 15);
     }
     void ioctl(uint32_t param, uint32_t value) {
         // do nothing for now
@@ -102,7 +102,7 @@ public:
     uint32_t _f;
 
     NoisyVoice() {
-        filt.setQ(6);
+        filt.setQ(4);
         osc1.setwaveform(1);
         osc2.setwaveform(2);
         osc3.setwaveform(2);

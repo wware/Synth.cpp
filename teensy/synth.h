@@ -311,12 +311,12 @@ public:
      * Default keydown behavior is to call keydown on the current synth and
      * pass it the pitch. This behavior can be overridden.
      */
-    void keydown(void);
+    virtual void keydown(void);
     /**
      * Default keyup behavior is to call keyup on the current synth and
      * pass it the pitch. This behavior can be overridden.
      */
-    void keyup(void);
+    virtual void keyup(void);
 };
 
 #endif     // SYNTH_H_INCLUDED
