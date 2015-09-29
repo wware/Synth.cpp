@@ -68,7 +68,6 @@ public:
     virtual void ioctl(uint32_t, uint32_t) = 0;
 };
 
-extern void use_read_key(uint8_t (*rk)(uint32_t));
 extern void use_synth_array(ISynth **s, uint8_t _num_synths);
 extern ISynth * get_synth(void);
 extern void use_synth(uint8_t i);
@@ -317,6 +316,11 @@ public:
      * pass it the pitch. This behavior can be overridden.
      */
     virtual void keyup(void);
+    /**
+     * Detect whether a key is being pressed or touched. This is a single
+     * detection prior to any debouncing logic.
+     */
+    virtual bool read(void) = 0;
 };
 
 #endif     // SYNTH_H_INCLUDED

@@ -19,12 +19,6 @@
 ISynth **_synth_ary = NULL;
 ISynth *_synth = NULL;
 uint8_t num_synths = 0;
-uint8_t (*_read_key)(uint32_t) = NULL;
-
-void use_read_key(uint8_t (*rk)(uint32_t))
-{
-    _read_key = rk;
-}
 
 void use_synth(uint8_t i)
 {
@@ -328,7 +322,7 @@ void Filter::step(int32_t x) {
 }
 
 void Key::check(void) {
-    if (_read_key != NULL && _read_key(id)) {
+    if (read()) {
         if (state) {
             count = 0;
         } else {
